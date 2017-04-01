@@ -1,6 +1,7 @@
 package com.platform.controller;
 
 import com.platform.domain.Blog;
+import com.platform.repository.BlogRepository;
 import com.platform.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/blogger")
-public class HomeController {
+public class BlogController {
     @Autowired
     private BlogService blogService;
 

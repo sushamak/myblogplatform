@@ -1,8 +1,27 @@
 package com.platform.domain;
 
-import java.util.Date;
+import org.springframework.data.annotation.Id;
 
+import java.util.Date;
 public class Blog {
+
+    @Id
+    private String id;
+    private String name;
+    private String author;
+    private String description;
+    private Date published;
+    private Date lastUpdated;
+
+    public Blog(String id, String name, String author, String description, Date published, Date lastUpdated) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.description = description;
+        this.published = published;
+        this.lastUpdated = lastUpdated;
+    }
+
     public String getId() {
         return id;
     }
@@ -51,10 +70,16 @@ public class Blog {
         this.lastUpdated = lastUpdated;
     }
 
-    String id;
-    String name;
-    String author;
-    String description;
-    Date published;
-    Date lastUpdated;
+    @Override
+    public String toString() {
+        return "Blog{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", author='" + author + '\'' +
+                ", description='" + description + '\'' +
+                ", published=" + published +
+                ", lastUpdated=" + lastUpdated +
+                '}';
+    }
+
 }
