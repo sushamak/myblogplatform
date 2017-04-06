@@ -17,14 +17,15 @@ public class PostController {
     public List<Post> getAllPost(@PathVariable String blogId){
         return postService.getAllPosts(blogId);
     }
+
     @RequestMapping(value = "{postId}")
     public Post getPostInfo(@PathVariable String postId){
         return postService.getPostInfo(postId);
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void createPost(@PathVariable String blogId, @RequestBody Post post){
-        postService.createPost(blogId, post);
+    public Post createPost(@PathVariable String blogId, @RequestBody Post post){
+        return postService.createPost(blogId, post);
     }
 
     @RequestMapping(value = "{postId}", method = RequestMethod.PUT)

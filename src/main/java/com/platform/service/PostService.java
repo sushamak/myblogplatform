@@ -10,7 +10,9 @@ public interface PostService {
 
     List<Post> getAllPosts(String blogId);
 
-    void createPost(String blogId, Post post);
+    Post createPost(String blogId, Post post);
 
     Post updatePost(String blogId, String postId, Post post);
+
+    List<Post> searchPost(String query);
 }

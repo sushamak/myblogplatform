@@ -8,7 +8,7 @@ public interface BlogService {
 
     void deleteByName(String name);
 
-    void createBlog(Blog blog);
+    Blog createBlog(Blog blog);
 
     void updateBlog(String name, Blog blog);
 }

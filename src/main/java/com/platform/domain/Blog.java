@@ -6,15 +6,18 @@ import java.util.Date;
 public class Blog {
 
     @Id
-    private String id;
+    private String blogId;
     private String name;
     private String author;
     private String description;
     private Date published;
     private Date lastUpdated;
 
+    public Blog() {
+    }
+
     public Blog(String id, String name, String author, String description, Date published, Date lastUpdated) {
-        this.id = id;
+        this.blogId = id;
         this.name = name;
         this.author = author;
         this.description = description;
@@ -22,12 +25,12 @@ public class Blog {
         this.lastUpdated = lastUpdated;
     }
 
-    public String getId() {
-        return id;
+    public String getBlogId() {
+        return blogId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setBlogId(String blogId) {
+        this.blogId = blogId;
     }
 
     public String getName() {
@@ -73,7 +76,7 @@ public class Blog {
     @Override
     public String toString() {
         return "Blog{" +
-                "id='" + id + '\'' +
+                "blogId='" + blogId + '\'' +
                 ", name='" + name + '\'' +
                 ", author='" + author + '\'' +
                 ", description='" + description + '\'' +

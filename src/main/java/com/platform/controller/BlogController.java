@@ -27,14 +27,13 @@ public class BlogController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void createBlog(@RequestBody Blog blog) {
-        blogService.createBlog(blog);
+    public Blog createBlog(@RequestBody Blog blog) {
+        return blogService.createBlog(blog);
     }
 
     @RequestMapping(value = "{name}", method = RequestMethod.PUT)
     public void updateBlog(@PathVariable String name, @RequestBody Blog blog){
         blogService.updateBlog(name,blog);
     }
-
 
 }

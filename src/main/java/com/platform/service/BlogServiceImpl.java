@@ -25,16 +25,16 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public void createBlog(Blog blog) {
-        blog.setId(blog.getName().toLowerCase());
-        blogRepository.save(blog);
+    public Blog createBlog(Blog blog) {
+        blog.setBlogId(blog.getName().toLowerCase());
+       return blogRepository.save(blog);
     }
 
     @Override
     public void updateBlog(String name, Blog blog) {
-        Blog dbBlog = blogRepository.findById(name.toLowerCase());
+        Blog dbBlog = blogRepository.findByBlogId(name.toLowerCase());
         if (dbBlog != null) {
-            dbBlog.setId(blog.getId());
+            dbBlog.setBlogId(blog.getBlogId());
             dbBlog.setAuthor(blog.getAuthor());
             dbBlog.setPublished(blog.getPublished());
             dbBlog.setDescription(blog.getDescription());

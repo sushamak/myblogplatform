@@ -25,27 +25,32 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> getAllPosts(String blogId) {
-        Blog blog = blogRepository.findById(blogId);
+        Blog blog = blogRepository.findByBlogId(blogId);
         return postRepository.findByBlog(blog);
     }
 
     @Override
-    public void createPost(String blogId, Post post) {
-        Blog blog = blogRepository.findById(blogId);
+    public Post createPost(String blogId, Post post) {
+        Blog blog = blogRepository.findByBlogId(blogId);
         post.setBlog(blog);
         post.setCreatedOn(new Date());
         post.setLastUpdated(new Date());
-        postRepository.save(post);
+        return postRepository.save(post);
     }
 
     @Override
     public Post updatePost(String blogId, String postId, Post postToUpdate) {
-        Post post = postRepository.findById(postId);
+        Post post = postRepository.findByPostId(postId);
         Blog blog = post.getBlog();
-        if(blog != null && blog.getId() != null && blog.getId().equals(blogId)){
-            postToUpdate.setBlog(blogRepository.findById(blogId));
+        if(blog != null && blog.getBlogId() != null && blog.getBlogId().equals(blogId)){
+            postToUpdate.setBlog(blogRepository.findByBlogId(blogId));
            return postRepository.save(postToUpdate);
         }
         return null;
+    }
+
+    @Override
+    public List<Post> searchPost(String query) {
+        return postRepository.searchPost(query);
     }
 }
