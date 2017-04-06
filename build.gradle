@@ -21,6 +21,11 @@ repositories {
 	mavenCentral()
 }
 
+task importData(type: Exec) {
+	commandLine './importData.sh'
+}
+
+build.dependsOn importData
 
 dependencies {
 	compile('org.springframework.boot:spring-boot-starter-actuator')
@@ -29,3 +34,5 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-data-mongodb")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
+
+
